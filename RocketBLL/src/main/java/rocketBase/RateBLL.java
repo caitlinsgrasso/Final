@@ -1,33 +1,44 @@
 package rocketBase;
 
+import java.util.ArrayList;
+
 import org.apache.poi.ss.formula.functions.*;
+
+import exceptions.RateException;
+import rocketDomain.RateDomainModel;
 
 public class RateBLL {
 
 	private static RateDAL _RateDAL = new RateDAL();
 	
-	static double getRate(int GivenCreditScore) 
-	{
-		//TODO - RocketBLL RateBLL.getRate - make sure you throw any exception
+	public static double getRate(int GivenCreditScore) throws RateException{
 		
-		//		Call RateDAL.getAllRates... this returns an array of rates
-		//		write the code that will search the rates to determine the 
-		//		interest rate for the given credit score
-		//		hints:  you have to sort the rates...  you can do this by using
-		//			a comparator... or by using an OrderBy statement in the HQL
+		//Getting rates and putting them in an ArrayList
+		ArrayList<RateDomainModel> rateList = RateDAL.getAllRates();
+		//set interest rate and RateDomainModel to something that will throw an exception
+		double interestRate = -1;
+		RateDomainModel RateDomainModel = null;
 		
-		
-		//TODO - RocketBLL RateBLL.getRate
-		//			obviously this should be changed to return the determined rate
-		return 0;
-		
-		
+		for (RateDomainModel rate: rateList){
+			if (rate.getiMinCreditScore() <= GivenCreditScore){
+				interestRate = rate.getdInterestRate();
+			}
+			//throws exception if rate is not possible or the RateDomainModel is null
+			else if (interestRate<0 || RateDomainModel==null){
+				throw new RateException(RateDomainModel);
+			}
+			
+			else{
+				return interestRate;
+			}
+		}
+		return interestRate;
+			
 	}
 	
 	
-	//TODO - RocketBLL RateBLL.getPayment 
-	//		how to use:
-	//		https://poi.apache.org/apidocs/org/apache/poi/ss/formula/functions/FinanceLib.html
+	
+	//	Calculating payment using a finance library
 	
 	public static double getPayment(double r, double n, double p, double f, boolean t)
 	{		

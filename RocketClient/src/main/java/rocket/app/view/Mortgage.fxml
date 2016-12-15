@@ -1,10 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.40" fx:controller="rocket.app.view.MortgageController">
-
+<AnchorPane prefHeight="404.0" prefWidth="415.0" xmlns="http://javafx.com/javafx/8.0.65" xmlns:fx="http://javafx.com/fxml/1" fx:controller="rocket.app.view.MortgageController">
+   <children>
+      <Label layoutX="45.0" layoutY="54.0" text="Income" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="50.0" />
+      <Label layoutX="45.0" layoutY="90.0" text="Credit Score" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="100.0" />
+      <Label layoutX="45.0" layoutY="117.0" text="Term" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="150.0" />
+      <Label layoutX="45.0" layoutY="152.0" text="House Cost" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="200.0" />
+      <Label layoutX="45.0" layoutY="184.0" text="Mortage Payment" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="300.0" />
+      <TextField layoutX="218.0" layoutY="45.0" AnchorPane.rightAnchor="50.0" />
+      <TextField layoutX="202.0" layoutY="95.0" AnchorPane.rightAnchor="50.0" />
+      <TextField layoutX="196.0" layoutY="195.0" AnchorPane.rightAnchor="50.0" />
+      <ComboBox layoutX="209.0" layoutY="145.0" prefHeight="26.0" prefWidth="163.0" AnchorPane.rightAnchor="50.0" />
+      <Label layoutX="51.0" layoutY="297.0" text="Monthly Expenses" AnchorPane.leftAnchor="45.0" AnchorPane.topAnchor="250.0" />
+      <TextField layoutX="202.0" layoutY="245.0" AnchorPane.rightAnchor="50.0" AnchorPane.topAnchor="245.0" />
+      <Label layoutX="267.0" layoutY="300.0" text="Label" />
+   </children>
 </AnchorPane>

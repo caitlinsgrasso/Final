@@ -11,20 +11,19 @@ import rocketDomain.RateDomainModel;
 public class Rate_Test {
 
 	
-	//TODO - RocketDAL rate_test
-	//		Check to see if a known credit score returns a known interest rate
-	
-	//TODO - RocketDAL rate_test
-	//		Check to see if a RateException is thrown if there are no rates for a given
-	//		credit score
+	//rateTest to make sure the interest rates have the correct value based on the data (within
+	//plus or minus a value of 0.1)
 	@Test
-	public void test() {
-		
+	public void RateTest() {
+
 		ArrayList<RateDomainModel> rates = RateDAL.getAllRates();
 		System.out.println ("Rates size: " + rates.size());
 		assert(rates.size() > 0);
-		
-		assert(1==1);
+		assertEquals(rates.get(1).getdInterestRate(),5, 0.1);
+		assertEquals(rates.get(2).getdInterestRate(),4.5, 0.1);
+		assertEquals(rates.get(3).getdInterestRate(),4, 0.1);
+		assertEquals(rates.get(4).getdInterestRate(),3.75, 0.1);
+		assertEquals(rates.get(5).getdInterestRate(),3.5, 0.1);
 	}
 
 }
